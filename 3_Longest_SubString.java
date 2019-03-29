@@ -24,7 +24,6 @@ class Solution {
                 if (flag){
                     break;
                 }else if(result<(j-i+1)){
-                    
                     result = j-i+1;
                 }
             }               
