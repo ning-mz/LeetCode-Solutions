@@ -1,0 +1,42 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        int total = strs.length;
+        boolean flag = true;
+
+        if(total == 0){
+            String result = "";
+            return result;
+        }          
+        if(total == 1)
+            return strs[0];
+
+        int count = 0;
+        char tmp = 0;
+        while(flag){
+            for(int x=0; x<total; x++){
+                if(strs[x].length() < (count+1)){
+                    flag = false;
+                    break;
+                }
+                if(x == 0){
+                    tmp = strs[0].charAt(count);
+                }else{
+                    if(tmp != strs[x].charAt(count)){
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+            count++;
+        }
+
+        count--;
+        if(count == 0){
+            String result = "";
+            return result;
+        }else{
+            String result = strs[0].substring(0, count);
+            return result;
+        }       
+    }
+}
